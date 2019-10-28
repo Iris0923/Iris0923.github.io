@@ -152,6 +152,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsp的9个内置对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/28/jsp的9个内置对象/">jsp的9个内置对象</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/28/jsp的9个内置对象/" class="archive-article-date">
+  	<time datetime="2019-10-28T13:51:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> jsp的9个内置对象</p>
+<ol>
+<li><p>Request<br>Request对象封装了由客户端生成的http请求的所有细节，主要包括http头信息、请求方式和请求参数等，通过该对象提供的相应方法可以获取客户端请求中的信息。<br>Request.getParameter(String arg0)方法的使用。<br>请求login.jsp页面。</p>
+<pre><code>&lt;div&gt;
+    &lt;Form action=&quot;login.jsp&quot; method=&quot;post&quot;&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;h3&gt;用户登录&lt;/h3&gt;&lt;/li&gt;&lt;/ul&gt;
+    &lt;ul&gt;&lt;li&gt;用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/li&gt;&lt;/ul&gt;
+    &lt;ul&gt;&lt;li&gt;密    码：&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;/li&gt;&lt;/ul&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;&lt;/li&gt;&lt;/ul&gt;
+    &lt;/Form&gt;
+    &lt;/div&gt;
+&lt;%
+//获得用户名
+String name=request.getParameter(&quot;username&quot;);
+String pwd=request.getParameter(&quot;pwd&quot;);
+if(&quot;guoyanan&quot;.equals(name) &amp;&amp; &quot;123&quot;.equals(pwd)){
+    out.print(&quot;&lt;h1&gt;登录成功&lt;/h1&gt;&quot;);
+}else{
+    out.print(&quot;&lt;h1&gt;登录失败&lt;/h1&gt;&quot;);
+}
+%&gt;</code></pre></li>
+</ol>
+<p>处理获取请求参数时的乱码。</p>
+<p>String user=new String(Request.getParameter(String arg0).getBytes(“iso-8851-1”),”UTF-8”);<br>处理提交信息时乱码。<br>Request.setCharacterEncoding(“UTF-8”);<br>Request对象获取客户端信息的常用方法 </p>
+<p>方法                    说明<br>getHeader(String name)    获取http协议定义的文件头信息<br>getHeaders(String name)    返回指定名称的request Header的所有值，结果是一个枚举的实例。<br>getHeadersNames()    返回所有request Header的名称，结构是一个枚举型的实例。<br>getMethod()    获得客户端向服务器传送的数据方式：get、post、header、trace等。<br>getProtocol()    获得客户端向服务器传送数据所依据的协议名称。<br>getRequestURL()    获取发出请求字符串的客户端地址，不包括请求的参数<br>getRealPath()    返回请求文件的绝对路径<br>getRemoteHost()    获取客户端的主机名<br>getRemoteAddr()    获取客户端的ip地址<br>getServerName()    获取服务器的名字<br>getServerPath()    获取客户端所有请求的脚本文件的文件路径<br>getServerPort()    获取服务器的端口号<br>getCookies()    获取客户端保存的Cookies数据</p>
+<p>Request对象域<br>在request域内存放数据。<br>Request.setAttribute(String name,Object obj);<br>Name:变量名。<br>Object:传递的数据。<br>获取request域内的数据。<br>Request.getAttribute(String name);  </p>
+<ol start="2">
+<li><p>Response响应对象<br>Response对象用于响应客户请求并向客户端输出信息，它封装了jsp生产的响应，并发送到客户端以响应客户端的请求。请求的数据可以是多种数据类型，甚至文件。<br>禁用缓存<br>Response.setHeader(“Cache-Control”,”no-store”);<br>Response.setDateHeader(“Expires”,0);</p>
+</li>
+<li><p>设置页面自动刷新<br>Response.setHeader(“refresh”,0);</p>
+</li>
+<li><p>定时跳转网页<br>Response.setHeader(“refresh”,”5;url=login.jsp”);<br>设置mime类型<br>Response.setContentType(String  type);<br>Type可选类型：text/html、text/plain、application/x_msexcel、application/msword等。<br>页面重定向<br>Response.sendRedirect(String  path);<br>Path:URL路径。不同主机的URL路径需要添加http：//…</p>
+</li>
+<li><p>Out输出对象<br>Out对象向客户端浏览器输出信息，并管理应用服务器上的输出缓冲区。<br>输出数据。<br>Out.print(String string)方法。<br>Out.println(String string)方法。<br>管理缓冲区<br>方法    说明<br>clear()    清除缓冲区中的内容<br>clearBuffer()    清除当前缓冲区的内容<br>isAutoFlush()    检测当前缓冲区已满时是自动清空，还是抛出异常<br>flush()    刷新流<br>getBufferSize()    获取缓冲区的大小 </p>
+</li>
+<li><p>Session对象<br>Session的生命周期，是作用在一个浏览器中，在各个页面中共享数据，无论当前浏览器存在多个页面之间跳转，整个用户会话一直存在。直到浏览器关闭。<br>通过session对象存储数据和提取数据。<br>存储数据：<br>Session.setAttribute(String name,Object obj);<br>Name：存放数据的变量名。<br>Obj:存放的对象。<br>获取数据:<br>Session.getAttribute(String name);<br>Name:获取数据的变量。同时获取值。<br>移除对话中的数据：<br>Session.removeAttribute(String name);<br>Name:需要删除的变量名。<br>设置会话的有效时间：<br>Tomact服务器默认会话时间为30分钟。不过session也可以自己设置会话时间。<br>Session.setMaxInactiveInterval(int time);<br>Time:指有效时间，单位为秒。<br>收到注销session：<br>Session.invalidate();   </p>
+</li>
+<li><p>application对象<br>application对象用于保存所有应用程序中的公有数据，与session相比application的生命周期更长。Application的生命周期跟服务器相关的，服务器启动是创建application服务器关闭时注销application对象。通常使用application对象统计网站访问的次数和聊天信息等。</p>
+</li>
+</ol>
+<p>存储数据：<br>Application.setAttribute(String name,Object obj);<br>Name:变量的名称。<br>Obj：保存的对象。<br>获取application对象使用的属性名和属性值：<br>Application.getAttributeNames();<br>实例：<br>因为要使用Enumeration对象，所以要在jsp页面的Page指令里添加import=”java.util.*”的内容</p>
+<p>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”<br>pageEncoding=”UTF-8” import=”java.util.*”%&gt;</p>
+<p>&lt;%<br>application.setAttribute(“cuncu”, “存储”);<br>Enumeration enema=application.getAttributeNames();//获取application范围内的全部属性</p>
+<pre><code>while(enema.hasMoreElements()){
+
+    String name=enema.nextElement().toString();//获取属性名
+    Object value=application.getAttribute(name);//获取属性值
+    out.print(name+&quot;:&quot;);
+    out.println(value);
+
+}
+%&gt;</code></pre><p>根据变量名获取数据：<br>Application.getAttribute(String name);<br>Name:变量的名称。<br>根据变量名删除数据：<br>Application.removeAttribute(String name);<br>Name:根据变量名删除数据。</p>
+<p>配置Web应用的初始化参数：<br>    Application对象提供了访问应用程序初始化参数的方法，该参数在web.xml文件中设置  Web.xml文件位于Web应用所在目录下的Web-inf子目录中，该文件中通过 <context-param>标记配置应用程序初始化参数。 Web.xml配置实例</context-param></p>
+<pre><code>    &lt;context-param&gt;
+&lt;param-name&gt;home&lt;/param-name&gt;
+&lt;param-value&gt;http://www.baidu.com&lt;/param-value&gt;
+&lt;/context-param&gt;           </code></pre><p>获取初始化对象：<br>Application.getInitParameter(String name);<br>Name:web文件中的配置名称(param-name)    </p>
+<p>获取初始化参数的枚举：<br>Application.getInitParamterNames();<br>Web.xml文件配置信息：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app version=&quot;3.1&quot; xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; 
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee   
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;home&lt;/param-name&gt;
+&lt;param-value&gt;http://www.baidu.com&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;/web-app&gt;</code></pre><p>实例：</p>
+<pre><code>&lt;%
+application.setAttribute(&quot;cuncu&quot;, &quot;存储&quot;);
+Enumeration enema=application.getInitParameterNames();//获取application范围内的全部属性
+String valuee=application.getInitParameter(&quot;home&quot;).toString();
+out.print(valuee);
+
+while(enema.hasMoreElements()){
+
+    String name=enema.nextElement().toString();//获取属性名
+    String value=application.getInitParameter(name).toString();//获取属性值
+    out.print(name+&quot;:&quot;);
+    out.println(value);
+
+}
+%&gt;</code></pre><ol start="6">
+<li>page对象<br>page对象代表jsp本身，只在jsp页面内才是合法的。该对象本质上包含当前Servlet接口引用的变量，可以看做是this关键字的别名。<br>Page对象的常用方法：</li>
+</ol>
+<p>方法            说明<br>getClass()    返回当前Object的类<br>hashCode()    返回该Object的哈希代码<br>toString()    把该Object类转换为字符串<br>Equals(Object obj)    比较该对象和指定的对象是否相等</p>
+<ol start="7">
+<li>pageContext对象<br>pageContext对象是一个比较特色的对象，通过它可以获取jsp页面的request、response、session、application、exception等对象。</li>
+</ol>
+<p>PageContext对象的方法：<br>方法    说明<br>Forward(java.lang.String relativeUtlpath)    把页面转发到另一个页面<br>getAttribute(String name)    获取参数值<br>getAttributeNamesInScope(int scope)    获取某范围的参数名称的集合，返回值为java.util.Enumeration对象<br>getException()    返回exception对象<br>getRequest()    返回request对象<br>getResponse()    返回Response对象<br>getSession()    返回Session对象<br>getOut()    返回out对象<br>getApplication()    返回application对象<br>getServletConfig()    返回Config对象<br>setAttribute(String name,object obj)    为指定范围内的属性设置属性值<br>removeAttribute(String name)    删除指定范围内的指定属性</p>
+<ol start="8">
+<li><p>Config对象<br>Config对象针对的是web.xml文件。<br>Config对象主要用于获取服务器的配置信息，当初始一个Servlet时，容器把某些洗洗脑通过config对象传递给Servlet。开发人员可以在web.xml文件中为应用程序配置环境中Servlet和jsp页面提供初始化参数。<br>Config的常用方法：<br>方法    说明<br>getServletContext()    获取Servlet上下文<br>getServletName()    获取Servlet服务器名<br>getInitParameter()    获取服务器所有初始参数名称，返回值为java.util.Enumeration对象<br>getInitParameterNames()    获取服务器中name参数的初始值 </p>
+</li>
+<li><p>Exception对象<br>Exception对象用来处理jsp文件执行时发生的所有错误和异常，只有在page指令中设置isErrorPage属性值为true的页面才可以被使用，设置跳转的Error的页面属性errorPage=”error.jsp”。如果在jsp页面出现没有捕捉到的异常，这会生成exception对象，并将其传送在page指令中设置的错误页面中，然后在错误页面中处理相应的exception对象。<br>Exception对象的常用方法：<br>方法    说明<br>getMessage()    返回exception对象的异常信息字符串<br>getLocalizedmessage()    返回本地化的异常错误<br>toString()    返回关于异常错误的简单信息描述<br>fillInStackTrace()    重写异常错误的栈执行轨迹</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/28/jsp的9个内置对象/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2019-10-22课堂笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
