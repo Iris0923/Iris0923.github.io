@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>课堂笔记1029 | Hexo</title>
+  <title>课堂笔记11.20 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP/Servlet一、相同点：1 处理后台逻辑，作为mvc控制；2 9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。    page.setAtt">
+  <meta name="description" content="课堂笔记11.20//登录成功 response.sendRedirect(&amp;quot;/success.jsp&amp;quot;);  &amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=UTF-8&amp;quot; pageEncoding=&amp;quot;UTF-8&amp;quot;%&amp;gt; &amp;lt;!DOCTYP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="课堂笔记1029">
-<meta property="og:url" content="http://yoursite.com/2019/10/29/课堂笔记1029/index.html">
+<meta property="og:title" content="课堂笔记11.20">
+<meta property="og:url" content="http://yoursite.com/2019/11/20/课堂笔记11-20/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="JSP/Servlet一、相同点：1 处理后台逻辑，作为mvc控制；2 9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。    page.setAtt">
+<meta property="og:description" content="课堂笔记11.20//登录成功 response.sendRedirect(&amp;quot;/success.jsp&amp;quot;);  &amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=UTF-8&amp;quot; pageEncoding=&amp;quot;UTF-8&amp;quot;%&amp;gt; &amp;lt;!DOCTYP">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-29T11:40:54.923Z">
+<meta property="og:updated_time" content="2019-11-20T11:56:11.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="课堂笔记1029">
-<meta name="twitter:description" content="JSP/Servlet一、相同点：1 处理后台逻辑，作为mvc控制；2 9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，内置对象作用域：page &amp;lt; request/response &amp;lt; session &amp;lt; application。    page.setAtt">
+<meta name="twitter:title" content="课堂笔记11.20">
+<meta name="twitter:description" content="课堂笔记11.20//登录成功 response.sendRedirect(&amp;quot;/success.jsp&amp;quot;);  &amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=UTF-8&amp;quot; pageEncoding=&amp;quot;UTF-8&amp;quot;%&amp;gt; &amp;lt;!DOCTYP">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,31 +154,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-课堂笔记1029" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-课堂笔记11-20" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      课堂笔记1029
+      课堂笔记11.20
     </h1>
   
 
         
-        <a href="/2019/10/29/课堂笔记1029/" class="archive-article-date">
-  	<time datetime="2019-10-29T11:33:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+        <a href="/2019/11/20/课堂笔记11-20/" class="archive-article-date">
+  	<time datetime="2019-11-20T11:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JSP/Servlet<br>一、相同点：<br>1 处理后台逻辑，作为mvc控制；<br>2 9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，<br>内置对象作用域：page &lt; request/response &lt; session &lt; application。    page.setAttribute(“username”,”sam”);String id = page.getAttribute(“username”); request.setAttribute(“username”,”sam”); String id = request.getAttribute(“username”); session.setAttribute(“username”,”sam”); String id = session.getAttribute(“username”); application.setAttribute(“username”,”sam”); String id = application.getAttribute(“username”);<br>3 都可用Java语言。  </p>
-<p>二、不同点：<br>1 JSP可作为前端显示页面，Servlet只能作后台控制；<br>2 JSP可内嵌html、EL、JSTL和Java，而Servlet只能有 Java；<br>3 JSP控制不需要项目中去注册、而Servlet必须注册(web.xml/注解)<br>4 JSP常作为小型项目，Servlet常用作 框架类的大型项目；  </p>
-<p>本堂课程知识要点<br>页面跳转 JSP Servlet<br>jsp如何获取数据，并显示出来(out对象)。<br>作业：用提交表单数据到jsp的方式，实现登录功能。</p>
-<p>拓展：<br>Spring、SpringMVC(Struts2.0)、MyBatis SSM<br>SpringBoot SpringCloud</p>
+        <h2 id="课堂笔记11-20"><a href="#课堂笔记11-20" class="headerlink" title="课堂笔记11.20"></a>课堂笔记11.20</h2><p>//登录成功</p>
+<pre><code>response.sendRedirect(&quot;/success.jsp&quot;);
 
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;欢迎页面&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+//从Request获取id、pwd、name的值
+String id= request.getParameter(&quot;id&quot;);
+String pwd= request.getParameter(&quot;pwd&quot;);
+String name= request.getParamete(&quot;name&quot;);
+//获取Session对象
+String path = request.getContextPath();
+HttpSession session=request.getSession();
+//向Session对象内放属性
+session.setAttribute(&quot;id&quot;, id);
+session.setAttribute(&quot;pwd&quot;, pwd);
+session.setAttribute(&quot;name&quot;, name);
+//页面输出
+out.println(&quot;&lt;span&gt;欢迎&quot;+name+&quot;登录&lt;/span&gt;&quot;);  
+//注销链接
+&lt;a href=&quot;out.jsp&quot;&gt;注销&lt;/a&gt;
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+注销页面(out.jsp)如下：
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+//获取Session对象
+String path = request.getContextPath();
+HttpSession session=request.getSession();
+//清空Session中的登录信息相关属性
+    session.removeAttribute(&quot;id&quot;);
+    session.removeAttribute(&quot;pwd&quot;);
+    session.removeAttribute(&quot;name&quot;);
+//上下文路径
+String path = request.getContextPath();
+//重定向到首页(未登录状态)
+response.sendRedirect(path+&quot;/index.jsp&quot;);
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
       
 
       
@@ -257,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/29/课堂笔记1029/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/20/课堂笔记11-20/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/20/课堂笔记11-20/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          课堂笔记11.20
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/28/jsp的9个内置对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsp的9个内置对象</div>
+    <a href="/2019/10/29/课堂笔记1029/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">课堂笔记1029</div>
       <i class="icon-circle-right"></i>
     </a>
   
